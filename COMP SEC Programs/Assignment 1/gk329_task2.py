@@ -5,10 +5,6 @@ This function also prints the values at r,s and t at each step.
 """
 
 def EEA(a,b):
-    if a<b:
-        temp=a
-        a=b
-        b=temp
     r1=a
     r=b
     s1=1
