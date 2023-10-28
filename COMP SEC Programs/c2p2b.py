@@ -8,10 +8,6 @@ def mult_inv(n,a, Z_N_star):
     return -1
 
 def EEA(a,b):
-    if a<b:
-        temp=a
-        a=b
-        b=temp
     r1=a
     r=b
     s1=1
