@@ -1,5 +1,18 @@
-import random
+"""
+This program takes a parameter 'nu' and sets up the parameters N,p,q,e and d using naive RSA algorithm setup.
+The user can then choose to either encrypt a message or decrypt a ciphertext.
+The functions used:
+convert_to_bin(n): takes an integer n and returns its string binary form
+exponentiation(m,e): takes integers m and e and returns result of (m^e).
+prime_fermats_test(n): takes an integer n and tests it's primality using fermat's test for 50 iterations
+find_n_bit_primes(n): takes an integer n and generates 2 n-bit prime numbers
+EEA(a,b): takes integers a and b returns the values g,x,y from the representation: g = x*a + y*b
+rsa_setup(nu): takes an integer 'nu' and performs naive RSA Setup
+rsa_encryption(N,Zn): Takes an integer N and its set Zn and performs encryption on a user message from Zn
+rsa_encryption(N,Zn): Takes an integer N and its set Zn and performs decryption on a user ciphertext from Zn
+"""
 
+import random
 
 def convert_to_bin(n):
     b = ""
