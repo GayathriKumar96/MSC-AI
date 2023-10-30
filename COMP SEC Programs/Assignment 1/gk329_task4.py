@@ -87,7 +87,9 @@ def rsa_setup(nu):
 
     for i in range(2,M):
         g,x,y = EEA(i,M)
-        if g==1 and x>=0:
+        if g==1:
+            if x<0:
+                x += M
             return N,p,q,i,x
 
 def rsa_encryption(N,Zn):
@@ -139,5 +141,4 @@ else:
             rsa_encryption(N,Zn)
         elif option == '2':
             rsa_decryption(N,Zn)
-
 
