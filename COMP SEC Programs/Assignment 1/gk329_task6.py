@@ -25,7 +25,11 @@ def convert_to_bin(n):
 def exponentiation(m,e):
     result = 1
     x = m
+    if e<0:
+        return -1
     b =convert_to_bin(e)
+    if b=='0':
+        return 1
     while b:
         if b[-1] == '1':
             result *= x
