@@ -8,8 +8,8 @@ prime_fermats_test(n): takes an integer n and tests it's primality using fermat'
 find_n_bit_primes(n): takes an integer n and generates 2 n-bit prime numbers
 EEA(a,b): takes integers a and b returns the values g,x,y from the representation: g = x*a + y*b
 rsa_setup(nu): takes an integer 'nu' and performs naive RSA Setup
-rsa_encryption(N,Zn): Takes an integer N and its set Zn and performs encryption on a user message from Zn
-rsa_encryption(N,Zn): Takes an integer N and its set Zn and performs decryption on a user ciphertext from Zn
+rsa_encryption(N): Takes an integer and performs encryption on a user message from the set Zn
+rsa_encryption(N): Takes an integer and performs decryption on a user ciphertext from the set Zn
 """
 
 import random
@@ -92,22 +92,22 @@ def rsa_setup(nu):
                 x += M
             return N,p,q,i,x
 
-def rsa_encryption(N,Zn):
+def rsa_encryption(N):
     print("Encryption: ")
     print("Your message space is the set {Z/"+str(N)+"Z} = {0,1,....."+str(N-1)+"}")
     m = int(input(("Please enter a number from this set:")))
-    if m not in Zn:
+    if m not in range(N):
         print("INVALID")
     else:
         c = exponentiation(m,e) % N
         print("The ciphertext for your message {0} is {1}".format(m,c))
     print("-------------------------------------------------")
 
-def rsa_decryption(N,Zn):
+def rsa_decryption(N):
     print("Decryption: ")
     print("Your ciphertext space is the set {Z/"+str(N)+"Z} = {0,1,....."+str(N-1)+"}")
     c = int(input(("Please enter a number from this set:")))
-    if c not in Zn:
+    if c not in range(N):
         print("INVALID")
     else:
         m = exponentiation(c,d) % N
@@ -128,7 +128,6 @@ else:
     print("The decryption exponent is d = ",d)
     print("-------------------------------------------------")
     option = '1'
-    Zn = set(range(N))
     while option in ['1','2']:
         print("-------------------------------------------------")
         print("Please enter an option: ")
@@ -138,7 +137,7 @@ else:
         option = input("Your option: ")
         print("-------------------------------------------------")
         if option == '1':
-            rsa_encryption(N,Zn)
+            rsa_encryption(N)
         elif option == '2':
-            rsa_decryption(N,Zn)
+            rsa_decryption(N)
 
