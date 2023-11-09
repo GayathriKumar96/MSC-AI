@@ -41,6 +41,8 @@ def exponentiation(m,e):
 def prime_fermats_test(n):
     if n<2:
         return 0
+    if n==2:
+        return 1
     for i in range(50):
         a = random.randint(2,n-1)
         if (exponentiation(a,n-1))%n != 1:
@@ -115,7 +117,7 @@ def rsa_decryption(N):
     print("-------------------------------------------------")
 
 nu = int(input("Please enter the security parameter 'nu': "))
-if nu<2:
+if nu<6:
     print("INVALID")
 else:
     N,p,q,e,d = rsa_setup(nu)

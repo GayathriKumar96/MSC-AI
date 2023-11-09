@@ -22,7 +22,13 @@ def convert_to_bin(n):
 def exponentiation_modulo(m,e,N):
     result = 1
     x = m
+    if N<1:
+        return -1
+    if e<0:
+        return -1
     b =convert_to_bin(e)
+    if b=='0':
+        return '1'
     while b:
         if b[-1] == '1':
             result *= x
@@ -34,7 +40,11 @@ m = int(input("Please enter m: "))
 e = int(input("Please enter e: "))
 N = int(input("Please enter N: "))
 print("-----------------------------------------------")
-print("The value of m ∧ e mod N is: "+ exponentiation_modulo(m,e,N))
+result = exponentiation_modulo(m,e,N)
+if result == -1:
+    print("Invalid!")
+else:
+    print("The value of m ∧ e mod N is: "+ result)
 print("-----------------------------------------------")
 
 
