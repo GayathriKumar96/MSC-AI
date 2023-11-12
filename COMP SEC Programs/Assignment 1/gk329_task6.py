@@ -2,8 +2,8 @@
 This program takes the parameters N,e and c from task 4 and outputs the original message m 
 that was encrypted to ciphertext c.
 The functions used:
-convert_to_bin(n): takes an integer n and returns its string binary form
-exponentiation(m,e): takes integers m and e and returns result of (m^e).
+convert_to_bin(n): takes an integer n and returns its binary form
+exponentiation(m,e): takes integers m and e and returns result of (m^e)
 ind_cca(N,e,c): takes 3 parameters N,e and c and calculates the plaintext m
 which was encrypted to ciphertext c
 """
@@ -40,7 +40,6 @@ def exponentiation(m,e):
 def ind_cca(N,e,c):
     cp = (exponentiation(2,e)*c) % N
     print("The modified ciphertext c' is = ",cp)
-    print("--------------------------------------------------")
     for i in range(N):
         if (2*i) % N == 1:
             inv =  i
@@ -52,11 +51,16 @@ def ind_cca(N,e,c):
     m = int((inv*mp)%N)
     return m
 
-N = int(input("Please enter the public parameter N: "))
-e = int(input("Please enter the encryption exponent e: "))
-print("--------------------------------------------------")
-c = int(input("Please enter the ciphertext c: "))
-print("--------------------------------------------------")
-m = ind_cca(N,e,c)
-print("The original plaintext message m computed from m' is: ",m)
-print("--------------------------------------------------")
+try:
+    N = int(input("Please enter the public parameter N: "))
+    e = int(input("Please enter the encryption exponent e: "))
+    print("--------------------------------------------------")
+    c = int(input("Please enter the ciphertext c: "))
+    print("--------------------------------------------------")
+    if N<=0 or e<=0:
+        raise Exception()
+    m = ind_cca(N,e,c)
+    print("The original plaintext message m computed from m' is: ",m)
+    print("--------------------------------------------------")
+except:
+    print("INVALID!")

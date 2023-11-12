@@ -1,7 +1,7 @@
 """ This program takes two integers a and b and calculates the GCD of a and b using Extended Eucledian Algorithm(EEA).
 The function used:
 EEA(a,b): takes integers a and b returns the values g,x,y from the representation: g = x*a + y*b
-This function also prints the values at r,s and t at each step.
+This function also prints the values of r,s and t at each step
 """
 
 def EEA(a,b):

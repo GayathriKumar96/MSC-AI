@@ -1,7 +1,7 @@
-"""This program takes 3 parameters m,e and N to compute (m^e) modulo N. 
+"""This program takes 3 parameters m,e and N to compute the value of (m^e) modulo N. 
 There are 2 functions defined. 
-convert_to_bin(n): takes an integer n and returns its string binary form
-exponentiation_modulo(m,e,N): takes integers m,e and N and returns string result of (m^e) modulo N. 
+convert_to_bin(n): takes an integer n and returns its binary form
+exponentiation_modulo(m,e,N): takes integers m,e and N and returns result of (m^e) modulo N. 
 
 Exponentiation part done using non recursive binary logic.
 Referred to the algorithm for the same given in: https://stackoverflow.com/questions/42598694/non-recursive-algorithm-of-ab-with-time-complexity-of-logb
@@ -34,7 +34,7 @@ def exponentiation_modulo(m,e,N):
             result *= x
         x *= x
         b = b[:-1]
-    return str(result % N)
+    return result % N
 
 m = int(input("Please enter m: "))
 e = int(input("Please enter e: "))
@@ -44,7 +44,7 @@ result = exponentiation_modulo(m,e,N)
 if result == -1:
     print("Invalid!")
 else:
-    print("The value of m ∧ e mod N is: "+ result)
+    print("The value of m ∧ e mod N is: "+ str(result))
 print("-----------------------------------------------")
 
 
