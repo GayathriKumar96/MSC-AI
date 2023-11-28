@@ -1,14 +1,18 @@
 import random 
 import string
+import hashlib
+
+def multiple_hashing(p,s):
+    h = hashlib.sha256((p+s).encode()).hexdigest()
+    i=1
+    while i<=10:
+        h = hashlib.sha256((str(h)).encode()).hexdigest()
+        i+=1
+    return h
 
 def user_registration(u,p,pl):
     s = ''.join(random.choice(string.ascii_letters) for i in range(12))
-    i=1
-    h = hash(p+s)
-
-    while i<=10:
-        h = hash(h)
-        i+=1
+    h = multiple_hashing(p,s)
 
     print("Entering details into database....")
     with open("Assignment 2/user_info.txt", "a") as f:
@@ -29,9 +33,19 @@ def user_login(u,p):
             category, value = elem.split(':-')
             user_dict[category] = value
         user_details.append(user_dict)
-    print(user_details)    
-        
-    
+    f=0
+    for user in user_details:
+        if user['Username'] == u:
+            f=1
+            s = user['Salt']
+            h = multiple_hashing(p,s)
+            hash_value = user['Hash value']
+    if f==0:
+        print("User not found!")           
+    elif h==hash_value:
+        print("User logged in successfully!")
+    else:
+        print("Access denied!")
 
 choice = '1'
 
@@ -55,6 +69,5 @@ while choice in ['1','2']:
         p = input("Enter password(clear): ")
         user_login(u,p)
     
-
 
 
