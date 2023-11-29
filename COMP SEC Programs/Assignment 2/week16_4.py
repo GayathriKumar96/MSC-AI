@@ -14,10 +14,10 @@ for elem in comb_list:
 
 f=0
 for word in perm_list:
-    word_code = ''
+    """word_code = ''
     for letter in word:
-        word_code += key_code_dict[letter]
-    word_hash = hashlib.sha1((word_code).encode()).hexdigest()
+        word_code += key_code_dict[letter]"""
+    word_hash = hashlib.sha1((word).encode()).hexdigest()
     if word_hash == hash_value:
         f=1
         print("Passcode decoded to be : ", word)
@@ -26,4 +26,4 @@ for word in perm_list:
 if f==0:
     print("Passcode not found")
 
-"""OUTPUT: """
+"""OUTPUT: Passcode decoded to be :  aebfcidhg"""
