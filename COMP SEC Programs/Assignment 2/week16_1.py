@@ -15,14 +15,14 @@ def user_registration(u,p,pl):
     h = multiple_hashing(p,s)
 
     print("Entering details into database....")
-    with open(".\\user_info.txt", "a") as f:
+    with open(".\\Assignment 2\\user_info.txt", "a") as f:
         f.write("Username:-{0}||Salt:-{1}||Hash value:-{2}||Profile:-{3}\n".format(u,s,h,pl))
     
     print("Done!")
 
 def user_login(u,p):
     print("Checking user from database....")
-    with open(".\\user_info.txt", "r") as f:
+    with open(".\\Assignment 2\\user_info.txt", "r") as f:
         records = f.readlines()
 
     user_details = []
