@@ -25,7 +25,6 @@ def user_registration(u,p,pl):
 
 def user_login(u):
     print("Checking user from database....")
-
     with open(".\\Assignment 2\\user_info_2.txt", "r") as f:
         records = f.readlines()
 
@@ -47,8 +46,6 @@ def user_login(u):
             hsp = hashlib.sha256((str(hsp+str(datetime.now()))).encode()).hexdigest()
             orig_lines = [line.strip() for line in open('.\\Assignment 2\\user_info_2.txt')]
             new_lines = [l for l in orig_lines if not l.startswith('Username:-'+u)]
-            print("new lines")
-            print(new_lines)
             with open(".\\Assignment 2\\user_info_2.txt", "w") as f:
                 f.write('\n'.join(new_lines+["Username:-{0}||Salt:-{1}||Hash value:-{2}||Profile:-{3}".format(u,user['Salt'],hsp,user['Profile'])]))
             generated_otp = hsp[-6:]

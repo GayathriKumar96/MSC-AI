@@ -16,10 +16,10 @@ def decrypt(ciphertext, key):
     plaintext = decryptor.update(base64.urlsafe_b64decode(ciphertext))
     return plaintext.decode()
 
-k_ab = "9141e3ec3298207f315d367e24539067064abcc4737ccfd00df2008a7c055959"
+k_ab = "4046d50b59721d71c877120cd1901939ddfbaa325157a4cae8eed4a44a973a13"
 K_AB = unhexlify(k_ab)
-M3 = "M1NYAD56e4w73xNIAPkq9Yra7JzHtQiEk5CKW0sjtdXWFF7ZC9NTTI2D53wvR0s5eNadL2j8glZ4v00hqkVGDij4pdx3cG8="
-k_bs = "2cef2ee58493bfaac32cd5cc03c80b03e14f94537fba47ee8bab0220fe477851"
+M3 = "4046d50b59721d71c877120cd1901939ddfbaa325157a4cae8eed4a44a973a13"
+k_bs = "290fe011433337546ec63c913e6a734b17ae2e5d37d3d5c7f1eb9151a0badd59"
 K_BS = unhexlify(k_bs)
 
 print("\nUnknown to Eve:")
