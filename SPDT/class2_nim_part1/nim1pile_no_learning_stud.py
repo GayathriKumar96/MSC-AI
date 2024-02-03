@@ -21,7 +21,11 @@ def expert_move(n):
     :return: action (not action id)
     '''
     # TODO: implement your expert move here
-    return random.randint(1,2)
+    if n in [2,5]:
+        return 2
+    if n in [1,4]:
+        return 1
+    return 1
 
 
 def who_is_first():
@@ -52,7 +56,7 @@ if __name__ == "__main__":
         while True:
             print("-" * 20)
             print("Current pile has " + str(curr_pile_size) + " stones: " + "*" * curr_pile_size)
-            if whose_turn == "human":
+            if whose_turn == "human" and opponent!='expert':
                 move = -1
                 if curr_pile_size == 1:
                     print("Only action 1 is possible.")
